@@ -12,6 +12,12 @@ inline s32 clampS32(s32 value, s32 min, s32 max) {
     return value;
 }
 
+struct Object38_s16r2_t {
+    Object38_s16r2_t() : val1(0), val2(0) {}
+    u16 val1;
+    u16 val2;
+};
+
 struct UnitObject {
     virtual ~UnitObject() {}
 
@@ -21,7 +27,7 @@ struct UnitObject {
     virtual void object_20() = 0;
     virtual void object_28() = 0;
     virtual u32 object_30() = 0;
-    virtual void object_38() = 0;
+    virtual Object38_s16r2_t object_38() = 0;
     virtual void object_40() = 0;
     virtual void object_48() = 0;
     virtual u32 object_50() = 0;
@@ -74,7 +80,7 @@ public:
     virtual void onNoStatus();
 
     virtual void setLevel(s32 value);
-    virtual void setHP(s32 value);
+    virtual void setHP(s32 value); // 0x118
     virtual void setMaxHP(s32 value);
     virtual void setPP(s32 value);
     virtual void setMaxPP(s32 value);
@@ -85,14 +91,14 @@ public:
     virtual void setKindness(s32 value);
     virtual void setElementWeakness(s32 idx, s32 value);
     virtual void setStatusWeakness(u16 idx, s32 value);
-    virtual void unit_170(u32 value);
+    virtual void unit_170(u32 value); // 0x170
 
     virtual u16 unit_178() = 0;
-    virtual u16 id() const = 0;
-    virtual Msg name() const = 0;
+    virtual u16 id() const = 0; // 0x180
+    virtual Msg name() const = 0; // 0x188
 
-    virtual s32 level() const;
-    virtual s32 hpReal() const;
+    virtual s32 level() const; // 0x190
+    virtual s32 hpReal() const; // 0x198
     virtual s32 hp() const;
     virtual s32 maxHP() const;
     virtual s32 ppReal() const;
@@ -105,34 +111,34 @@ public:
     virtual s32 speed() const;
     virtual s32 kindness() const;
 
-    virtual s32 getElementWeakness(u32 idx) const;
-    virtual s32 getStatusWeakness(u16 idx) const;
-    virtual s32 unit_200() const;
+    virtual s32 getElementWeakness(u32 idx) const; // 0x1f0
+    virtual s32 getStatusWeakness(u16 idx) const; // 0x1f8
+    virtual s32 unit_200() const; // 0x200
 
-    virtual u16 attackSfx() = 0;
-    virtual u16 critSfx() = 0;
-    virtual u16 missSfx() = 0;
+    virtual u16 attackSfx() = 0; // 0x208
+    virtual u16 critSfx() = 0; // 0x210
+    virtual u16 missSfx() = 0; // 0x218
 
-    virtual UnitCmd* unit_220(u32 a1);
-    virtual bool unit_228(u32 a1);
-    virtual void unit_230();
+    virtual UnitCmd* unit_220(u32 a1); //0x220
+    virtual bool unit_228(u32 a1); //0x228
+    virtual void unit_230(); //0x230
     virtual s32 unit_238() const;
-    virtual u16 unit_240(s32 a1);
+    virtual u16 unit_240(s32 a1); //0x240
     virtual UnitCmd* unit_248(s32 a1);
-    virtual bool unit_250(u16 a1);
-    virtual s32 unit_258(u16 a1);
-    virtual s32 unit_260(u16 a1);
-    virtual u32 unit_268(u32 a1);
-    virtual s32 removeOneStatus(s32 idx);
-    virtual void removeStatus(Status::Type type);
-    virtual void clearAllStatuses();
-    virtual s32 statusCount() const;
-    virtual Status::Type getStatusType(s32 idx);
-    virtual Status* getStatus(s32 idx);
-    virtual bool hasStatus(Status::Type type);
-    virtual s32 getStatusIdx(Status::Type type);
-    virtual Status* findStatus(Status::Type type);
-    virtual s32 getStatusTypeCount(Status::Type type);
+    virtual bool unit_250(u16 a1); //0x250
+    virtual s32 unit_258(u16 a1); //0x258
+    virtual s32 unit_260(u16 a1); //0x260
+    virtual u32 unit_268(u32 a1); //0x268
+    virtual s32 removeOneStatus(s32 idx); //0x270
+    virtual void removeStatus(Status::Type type); //0x278
+    virtual void clearAllStatuses(); //0x280
+    virtual s32 statusCount() const; //0x288
+    virtual Status::Type getStatusType(s32 idx); //0x290
+    virtual Status* getStatus(s32 idx); //0x298
+    virtual bool hasStatus(Status::Type type);  //0x2A0
+    virtual s32 getStatusIdx(Status::Type type); //0x2A8
+    virtual Status* findStatus(Status::Type type); //0x2B0
+    virtual s32 getStatusTypeCount(Status::Type type); //0x2B8
 
     void kill();
     void revive();
